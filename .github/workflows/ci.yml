@@ -32,6 +32,15 @@ jobs:
       - name: Generate application key
         run: php artisan key:generate
 
+      - name: Install MySQL
+        run: sudo apt-get update && sudo apt-get install -y mysql-server
+
+      - name: Start MySQL Service
+        run: sudo service mysql start
+
+      - name: Setup database
+        run: mysql -e "Create Database crud_app"
+
       - name: Run database migrations
         run: |
           php artisan migrate --force
