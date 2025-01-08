@@ -19,11 +19,11 @@ class AddDefaultsToPostsTable extends Migration
         });
     
         Schema::table('posts', function (Blueprint $table) {
-            $table->string('title')->default('Default Title');
-            $table->text('content')->default('Default Content');
+            $table->string('title')->default('Default Title'); // This is fine
+            $table->text('content')->nullable(); // TEXT column cannot have a default value
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *
