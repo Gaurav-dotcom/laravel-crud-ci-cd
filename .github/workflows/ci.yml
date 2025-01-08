@@ -39,7 +39,7 @@ jobs:
         run: sudo service mysql start
 
       - name: Setup database
-        run: mysql -e "Create Database crud_app"
+        run: mysql -u root -proot -e "Create Database crud_app;"
 
       - name: Run database migrations
         run: |
